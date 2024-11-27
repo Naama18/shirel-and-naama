@@ -12,4 +12,11 @@ router.post("/", async function (req, res) {
 router.get("/:userid", function (req, res) {
   apiReq.Get("todos", req.params.userid);
 });
+router.patch("/:userid/:id", function (req, res) {
+  apiReq.Patch("todos", req, req.params.userid, req.params.id);
+});
+router.delete("/:userId/:id", function (req, res) {
+  console.log("im at router comment");
+  apiReq.Delete("todos", req.params.userId, req.params.id);
+});
 module.exports = router;

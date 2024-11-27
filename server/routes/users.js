@@ -8,6 +8,6 @@ router.post("/", function (req, res) {
   res.send("asdasd");
 });
 router.patch("/:userId", function (req, res) {
-  apiReq.Patch("user", req, req.params.userId);
+  apiReq.Patch("user", req, req.params.userId, null);
 });
 module.exports = router;
