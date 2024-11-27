@@ -32,25 +32,23 @@ exports.Post = async function (tableName, req) {
     req.body[postTableApi[tableName][2]],
   ];
   console.log("sql: ", sql);
-  await query(sql, bodyReq, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
-  });
+  const res = await query(sql, bodyReq);
+
+  return res.insertId;
 };
 // get all from table
 exports.Get = async function (tableName, param = null) {
+  console.log("IM AT THE GET IN THE SERVER");
   if (param === null) {
     const sql = `SELECT * FROM ${tableName}`;
-    await query(sql, function (err, result) {
-      if (err) throw err;
-      console.log(result);
-    });
+    const res = await query(sql);
+    console.log("result at client: ", res);
+    return res;
   } else {
     const sql = `SELECT * FROM ${tableName} where ${getTableApi[tableName]} = ${param}`;
-    await query(sql, function (err, result) {
-      if (err) throw err;
-      console.log(result);
-    });
+    const res = await query(sql);
+    console.log("result at client: ", res);
+    return res;
   }
 };
 exports.Patch = async function (tableName, req, param1, param2) {
