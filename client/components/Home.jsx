@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import HomeNavBar from "./HomeNavBar";
+import HomeNavBar from "./HomeNavBar.jsx";
 
 export default function Home() {
   const current = JSON.parse(localStorage.getItem("currentUser"));

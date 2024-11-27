@@ -9,8 +9,10 @@ router.post("/", async function (req, res) {
   res.send("asdasd");
 });
 
-router.get("/:userid", function (req, res) {
-  apiReq.Get("todos", req.params.userid);
+router.get("/:userid", async function (req, res) {
+  const response = await apiReq.Get("todos", req.params.userid);
+  console.log("response: ", response);
+  res.send(response);
 });
 router.patch("/:userid/:id", function (req, res) {
   apiReq.Patch("todos", req, req.params.userid, req.params.id);

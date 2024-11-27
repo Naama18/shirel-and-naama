@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LogIn from "./LogIn";
-import Resgister from "./Register";
+import Register from "./Register";
 
 export default function Index() {
   const [displayRegister, setDisplayRegister] = useState(false);
@@ -29,7 +29,7 @@ export default function Index() {
       >
         Register
       </button>
-      {displayRegister && <Resgister />}
+      {displayRegister && <Register />}
     </div>
   );
 }
