@@ -1,0 +1,7 @@
+
+{
+    "userId":"int",
+    "id":"int AUTO_INCREMENT PRIMARY KEY",
+    "title":"varchar(255)",
+    "completed":"varchar(255)"
+}
