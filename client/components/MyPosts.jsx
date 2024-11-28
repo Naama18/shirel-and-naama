@@ -120,18 +120,20 @@ export default function MyPosts() {
           value={newBody}
           onChange={(e) => setNewBody(e.target.value)}
           placeholder="Enter post body"
-        />
+        /><br/>
         <button onClick={addPost}>Add Post</button>
       </div>
       {posts.map((post) => (
         <div key={post.id}>
           <h3 className="font">{post.title}</h3>
           <p className="font">{post.body}</p>
+          <div className="post-buttons">
           <button onClick={() => handleComments(post.id)}>Commentes</button>
           {showComments === post.id && <Comments postId={post.id} />}
           <button onClick={() => deletePost(post.id)}>delete</button>
           <button onClick={() => editMyPost(post.id)}>edit</button>
           <button onClick={() => editMyPostBody(post.id)}>edit body</button>
+          </div>
         </div>
       ))}
     </div>

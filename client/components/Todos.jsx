@@ -92,7 +92,8 @@ export default function Todos() {
   console.log(todos);
   return (
     <div>
-      <h2 className="font">Todos</h2><br/>
+      <h2 className="font">Todos</h2>
+      <br />
       <div>
         <input
           type="text"
@@ -105,17 +106,17 @@ export default function Todos() {
       {todos.length > 0 ? (
         <div>
           {todos.map((todo) => (
-            <div key={todo.id}>
-              <label id="todo" className="font">
-                <input
-                  type="checkbox"
-                  checked={todo.completed === "true"}
-                  onChange={() => handleCheckboxChange(todo.id)}
-                />{" "}
-                {todo.title}
+            <div key={todo.id} className="todo-item">
+              <input
+                type="checkbox"
+                checked={todo.completed === "true"}
+                onChange={() => handleCheckboxChange(todo.id)}
+              />
+              <span className="todo-title">{todo.title}</span>
+              <div className="todo-buttons">
                 <button onClick={() => deleteTodo(todo.id)}>delete</button>
                 <button onClick={() => editToDo(todo.id)}>edit</button>
-              </label>
+              </div>
             </div>
           ))}
         </div>

@@ -87,124 +87,38 @@ input::placeholder {
   justify-content: flex-start;
 }
 
-/* Heading Styles */
-h1 {
-  font-family: 'Lobster', cursive;
-  color: black;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* Logo Styles */
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Hover effect on logo */
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-/* Logo spin animation */
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Reduce animation for users with reduced motion preference */
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-/* Card Styling */
-.card {
-  padding: 2em;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-  width: 100%;
-  max-width: 600px;
-  text-align: left;
-}
-
-.card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.card p {
-  font-size: 1rem;
-  color: #666;
-}
-
-/* Link Styling */
-.read-the-docs {
-  color: #888;
-  font-size: 0.9rem;
-  text-decoration: none;
-}
-
-.read-the-docs:hover {
-  color: #555;
-}
-
-/* Button Styling */
-button {
-  padding: 0.8em 1.2em;
-  font-size: 1rem;
-  background-color: #789dbc;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.post-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   margin-top: 1rem;
 }
 
-button:hover {
-  background-color: #5a7e8a;
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-direction: row;
 }
 
-button:disabled {
-  background-color: #c9e9d2;
-  cursor: not-allowed;
+.todo-title {
+  font-family: Lobster, sans-serif;
+  font-size: 1rem;
+  color: black;
 }
 
-/* Responsive Layout */
-@media (max-width: 768px) {
-  #root {
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .card {
-    padding: 1.5em;
-    width: 90%;
-  }
-
-  .logo {
-    height: 5em;
-    padding: 1em;
-  }
+.todo-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-direction: row;
 }
+
+button {
+  margin-top: 0.5rem;
+}
+
+
+
