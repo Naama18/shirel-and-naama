@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import GetRequest from "../getRequest";
 import deleteRequest from "../deleteRequest";
 import postRequest from "../postRequest";
+import Comments from "./Comments";
 export default function MyPosts() {
   const [posts, setPosts] = useState([]);
+  const [showComments, setShowComments] = useState();
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
@@ -18,14 +20,17 @@ export default function MyPosts() {
   useEffect(() => {
     getPosts();
   }, []);
-
+  const handleComments = (postId) => {
+    setShowComments(postId);
+  };
   return (
     <div>
       {posts.map((post) => (
         <div key={Math.random()}>
           <h3>{post.title}</h3>
           <p>{post.content}</p>
-          <button>Commentes</button>
+          <button onClick={() => handleComments(post.id)}>Commentes</button>
+          {showComments === post.id && <Comments postId={post.id} />}
         </div>
       ))}
     </div>

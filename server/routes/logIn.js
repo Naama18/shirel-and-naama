@@ -4,20 +4,16 @@ const { con } = require("../con");
 const util = require("util");
 const query = util.promisify(con.query).bind(con);
 let result = null;
-// validate user credentials
 async function validateUser(username, password) {
   const sql = "SELECT * FROM user WHERE username = ? AND password = ?";
   result = await query(sql, [username, password]);
-  return result.length > 0; // Returns true if user exists, false otherwise
+  return result.length > 0;
 }
-console.log("result: ", result);
-//log in a user
 router.post("/", async (req, res) => {
   const { username, password } = req.body;
   console.log("password: ", password);
   console.log("username: ", username);
 
-  // Ensure all required fields are provided
   if (!username || !password) {
     return res
       .status(400)
@@ -25,7 +21,6 @@ router.post("/", async (req, res) => {
   }
 
   try {
-    // Check if the username and password match a user in the database
     const isValid = await validateUser(username, password);
     console.log("isValid: ", isValid);
 
