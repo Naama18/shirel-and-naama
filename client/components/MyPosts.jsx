@@ -12,17 +12,21 @@ export default function MyPosts() {
     const fetchedPosts = await GetRequest(
       `http://localhost:3000/posts/${currentUser.id}`
     );
-    console.log("todos", fetchedPosts);
+    console.log("posts", fetchedPosts);
     setPosts(fetchedPosts);
   };
+  useEffect(() => {
+    getPosts();
+  }, []);
 
-  return;
-  <div>
-    {posts.map((post) => (
-      <div key={Math.random()}>
-        <h3>{post.title}</h3>
-        <p>{post.content}</p>
-      </div>
-    ))}
-  </div>;
+  return (
+    <div>
+      {posts.map((post) => (
+        <div key={Math.random()}>
+          <h3>{post.title}</h3>
+          <p>{post.content}</p>
+        </div>
+      ))}
+    </div>
+  );
 }

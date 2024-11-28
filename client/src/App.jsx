@@ -10,6 +10,7 @@ import Register from "../components/Register";
 import Index from "../components/Index";
 import NoPage from "../components/NoPage";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import MyPosts from "../components/MyPosts";
 
 function App() {
   {
@@ -25,6 +26,7 @@ function App() {
         <Route path="Home" element={<Home />}>
           <Route path="Todos" element={<Todos />} />
           <Route path="Posts" element={<Posts />} />
+          <Route path="MyPosts" element={<MyPosts />} />
         </Route>
         <Route path="Register" element={<Register />} />
         <Route path="*" element={<NoPage />} />
