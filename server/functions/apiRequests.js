@@ -34,17 +34,28 @@ exports.Post = async function (tableName, req) {
   console.log("sql: ", sql);
   const res = await query(sql, bodyReq);
 
-  return res.insertId;
+  return res;
 };
 // get all from table
 exports.Get = async function (tableName, param = null) {
-  console.log("IM AT THE GET IN THE SERVER");
+  console.log("param.limit", param.limit);
+  console.log(param.offset);
   if (param === null) {
     const sql = `SELECT * FROM ${tableName}`;
     const res = await query(sql);
     console.log("result at client: ", res);
     return res;
+  } else if (param.limit !== undefined && param.offset !== undefined) {
+    console.log("IM SUPPOSED TO BE HERE");
+    const { limit, offset } = param;
+    console.log("limit: ", limit);
+    const sql = `SELECT * FROM ${tableName} LIMIT ? OFFSET ?`;
+    const res = await query(sql, [limit, offset]);
+    console.log("result with pagination at client: ", res);
+    return res;
   } else {
+    console.log("BUT IM HERE");
+
     const sql = `SELECT * FROM ${tableName} where ${getTableApi[tableName]} = ${param}`;
     const res = await query(sql);
     console.log("result at client: ", res);

@@ -23,6 +23,9 @@ export default function HomeNavBar() {
       <Link to="Posts">
         <button>Posts</button>
       </Link>
+      <Link to="MyPosts">
+        <button>My Posts</button>
+      </Link>
       <Link to="Todos">
         <button>Todos</button>
       </Link>

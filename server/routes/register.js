@@ -29,8 +29,8 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ error: "Username already exists" });
     }
 
-    const id = await Post("user", { body: { username, password } });
-
+    const response = await Post("user", { body: { username, password } });
+    const id = response.insertId;
     res.status(201).json({ message: "User registered successfully", id });
   } catch (error) {
     console.error("Error during registration:", error);

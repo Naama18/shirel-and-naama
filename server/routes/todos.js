@@ -2,23 +2,26 @@ var express = require("express");
 const apiReq = require("../functions/apiRequests");
 
 var router = express.Router();
-router.post("/", async function (req, res) {
-  console.log("in todos");
-  await apiReq.Post("todos", req);
-
-  res.send("asdasd");
-});
 
 router.get("/:userid", async function (req, res) {
   const response = await apiReq.Get("todos", req.params.userid);
   console.log("response: ", response);
   res.send(response);
 });
+
+router.post("/:userid", async function (req, res) {
+  const response = await apiReq.Post("todos", req);
+  console.log("response: ", response);
+  res.send(response);
+});
 router.patch("/:userid/:id", function (req, res) {
-  apiReq.Patch("todos", req, req.params.userid, req.params.id);
+  const response = apiReq.Patch("todos", req, req.params.userid, req.params.id);
+  console.log("response: ", response);
+  res.send(response);
 });
 router.delete("/:userId/:id", function (req, res) {
-  console.log("im at router comment");
-  apiReq.Delete("todos", req.params.userId, req.params.id);
+  const response = apiReq.Delete("todos", req.params.userId, req.params.id);
+  console.log("response: ", response);
+  res.send(response);
 });
 module.exports = router;
