@@ -5,8 +5,8 @@ const deleteRequest = async (url) => {
     });
 
     if (response.ok) {
-      alert("todo deleted");
-      return "todo deleted";
+      alert("deleted");
+      return "deleted";
     } else {
       alert("something went wrong");
 

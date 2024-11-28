@@ -1,3 +1,12 @@
+body{
+  background-image: linear-gradient( #789DBC ,  #C9E9D2 ,#FFE3E3 );
+}
+
+h1{
+  font-family: Lobster  ;
+  color: black;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
