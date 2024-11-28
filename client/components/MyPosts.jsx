@@ -25,6 +25,7 @@ export default function MyPosts() {
         <div key={Math.random()}>
           <h3>{post.title}</h3>
           <p>{post.content}</p>
+          <button>Commentes</button>
         </div>
       ))}
     </div>

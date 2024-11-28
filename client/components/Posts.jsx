@@ -1,11 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Comments from "./Comments";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -35,6 +36,9 @@ const Posts = () => {
   const handleShowMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
+  const handleComments = () => {
+    setShowComments(true);
+  };
 
   return (
     <div>
@@ -42,6 +46,8 @@ const Posts = () => {
         <div key={Math.random()}>
           <h3>{post.title}</h3>
           <p>{post.content}</p>
+          <button onClick={() => handleComments()}>Commentes</button>
+          {showComments && <Comments postId={post.id} />}
         </div>
       ))}
       {loading && <p>Loading...</p>}
