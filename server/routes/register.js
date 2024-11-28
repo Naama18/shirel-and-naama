@@ -5,23 +5,19 @@ const { con } = require("../con");
 const util = require("util");
 const query = util.promisify(con.query).bind(con);
 let result = null;
-// check if the user already exists
 async function isUserExists(username) {
   const sql = "SELECT * FROM user WHERE username = ?";
   result = await query(sql, [username]);
   return result.length > 0;
 }
-// Route to register a new user
 router.post("/", async (req, res) => {
   const { username, password } = req.body;
 
-  // all required fields are provided
   if (!username || !password) {
     return res.status(400).json({ error: "All fields are required" });
   }
 
   try {
-    // Check if the username already exists
     const userExists = await isUserExists(username);
     console.log("userExists: ", userExists);
 

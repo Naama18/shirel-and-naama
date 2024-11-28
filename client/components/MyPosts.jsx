@@ -7,6 +7,8 @@ import Comments from "./Comments";
 export default function MyPosts() {
   const [posts, setPosts] = useState([]);
   const [showComments, setShowComments] = useState();
+  const [newBody, setNewBody] = useState();
+  const [newTitle, setNewTitle] = useState();
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
@@ -16,6 +18,22 @@ export default function MyPosts() {
     );
     console.log("posts", fetchedPosts);
     setPosts(fetchedPosts);
+  };
+
+  const addPost = async () => {
+    const post = {
+      userId: currentUser.id,
+      title: newTitle,
+      body: newBody,
+    };
+    const response = await postRequest(post, `http://localhost:3000/posts`);
+
+    if (response) {
+      setPosts((prevPosts) => [...prevPosts, post]);
+      alert("post added!");
+    } else {
+      alert("Failed to add the post");
+    }
   };
 
   const deletePost = async (postId) => {
@@ -90,8 +108,23 @@ export default function MyPosts() {
   };
   return (
     <div>
+      <div>
+        <input
+          type="text"
+          value={newTitle}
+          onChange={(e) => setNewTitle(e.target.value)}
+          placeholder="Enter post title"
+        />
+        <input
+          type="text"
+          value={newBody}
+          onChange={(e) => setNewBody(e.target.value)}
+          placeholder="Enter post body"
+        />
+        <button onClick={addPost}>Add Post</button>
+      </div>
       {posts.map((post) => (
-        <div key={Math.random()}>
+        <div key={post.id}>
           <h3 className="font">{post.title}</h3>
           <p className="font">{post.body}</p>
           <button onClick={() => handleComments(post.id)}>Commentes</button>
