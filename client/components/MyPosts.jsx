@@ -15,4 +15,14 @@ export default function MyPosts() {
     console.log("todos", fetchedPosts);
     setPosts(fetchedPosts);
   };
+
+  return;
+  <div>
+    {posts.map((post) => (
+      <div key={Math.random()}>
+        <h3>{post.title}</h3>
+        <p>{post.content}</p>
+      </div>
+    ))}
+  </div>;
 }
