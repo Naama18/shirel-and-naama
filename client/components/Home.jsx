@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <HomeNavBar />
-      <h1>hello {current.username}! </h1>
+      <h1 className="font">hello {current.username}! </h1>
       <Outlet />
     </>
   );

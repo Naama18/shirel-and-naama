@@ -92,8 +92,8 @@ export default function MyPosts() {
     <div>
       {posts.map((post) => (
         <div key={Math.random()}>
-          <h3>{post.title}</h3>
-          <p>{post.body}</p>
+          <h3 className="font">{post.title}</h3>
+          <p className="font">{post.body}</p>
           <button onClick={() => handleComments(post.id)}>Commentes</button>
           {showComments === post.id && <Comments postId={post.id} />}
           <button onClick={() => deletePost(post.id)}>delete</button>

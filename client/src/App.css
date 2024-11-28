@@ -2,9 +2,78 @@ body{
   background-image: linear-gradient( #789DBC ,  #C9E9D2 ,#FFE3E3 );
 }
 
-h1{
+
+.font{
   font-family: Lobster  ;
   color: black;
+}
+
+button {
+  background-color: #C5D3E8;
+  border: 2px solid #A6AEBF;
+  color: #000;
+  font-family: Lobster, sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #D0E8C5;
+  border-color: #789DBC;
+  color: #FFF;
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(1);
+  background-color: #789DBC;
+  border-color: #FFF;
+}
+
+button:disabled {
+  background-color: #E0E0E0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+button {
+  margin: 0.5rem;
+}
+
+h3{
+  font-size: 25px;
+}
+
+input {
+  background-color: #C9E9D2;
+  border: 2px solid #A6AEBF;
+  color: #000;
+  font-family: Lobster, sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #789DBC;
+  background-color: #D0E8C5;
+}
+
+input::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+#todo{
+  font-size: 25px;
 }
 
 #root {

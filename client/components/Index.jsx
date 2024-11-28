@@ -8,8 +8,8 @@ export default function Index() {
   console.log("hiiiii");
   return (
     <div class="indexContainer">
-      <h1>Welcome to our Website!</h1>
-      <h3>please log in</h3>
+      <h1 className="font">Welcome to our Website!</h1>
+      <h3 className="font">please log in</h3>
 
       <button
         onClick={() => {
@@ -20,7 +20,7 @@ export default function Index() {
         Log In
       </button>
       {displayLogIn && <LogIn />}
-      <h3>don't have an account?</h3>
+      <h3 className="font">don't have an account?</h3>
       <button
         onClick={() => {
           setDisplayRegister(true);

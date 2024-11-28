@@ -92,7 +92,7 @@ export default function Todos() {
   console.log(todos);
   return (
     <div>
-      <h2>Todos</h2>
+      <h2 className="font">Todos</h2><br/>
       <div>
         <input
           type="text"
@@ -106,7 +106,7 @@ export default function Todos() {
         <div>
           {todos.map((todo) => (
             <div key={todo.id}>
-              <label>
+              <label id="todo" className="font">
                 <input
                   type="checkbox"
                   checked={todo.completed === "true"}
@@ -120,7 +120,7 @@ export default function Todos() {
           ))}
         </div>
       ) : (
-        <p>No todos available</p>
+        <p className="font">No todos available</p>
       )}
     </div>
   );

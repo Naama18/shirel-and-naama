@@ -33,7 +33,7 @@ export default function Register() {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label>
+      <label className="font">
         Enter your user-name:
         <input
           type="text"
@@ -44,7 +44,7 @@ export default function Register() {
         />
       </label>
       <br />
-      <label>
+      <label className="font">
         Enter your password:
         <input
           type="password"
@@ -54,7 +54,7 @@ export default function Register() {
         />
       </label>
       <br />
-      <label>
+      <label className="font">
         Verify your password:
         <input
           type="password"

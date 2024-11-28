@@ -24,11 +24,11 @@ export default function Comments({ postId }) {
   return (
     <div>
       {comments.length === 0 ? (
-        <p>No comments available</p>
+        <p className="font">No comments available</p>
       ) : (
         comments.map((comment) => (
           <div key={comment.id}>
-            <p>
+            <p className="font">
               {comment.name}: {comment.body}
             </p>
           </div>

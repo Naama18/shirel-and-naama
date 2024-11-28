@@ -27,7 +27,7 @@ export default function LogIn() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label className="font">
           Enter username:
           <input
             type="text"
@@ -39,7 +39,7 @@ export default function LogIn() {
           />
         </label>
         <br />
-        <label>
+        <label className="font">
           Enter password:
           <input
             type="password"

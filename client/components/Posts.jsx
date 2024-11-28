@@ -46,13 +46,13 @@ const Posts = () => {
     <div>
       {posts.map((post) => (
         <div key={post.id}>
-          <h3>{post.title}</h3>
-          <p>{post.content}</p>
+          <h3 className="font">{post.title}</h3>
+          <p className="font">{post.content}</p>
           <button onClick={() => handleComments(post.id)}>Commentes</button>
           {showComments === post.id && <Comments postId={post.id} />}
         </div>
       ))}
-      {loading && <p>Loading...</p>}
+      {loading && <p className="font">Loading...</p>}
       <button onClick={handleShowMore} disabled={loading}>
         Show More
       </button>
