@@ -7,7 +7,9 @@ router.post("/", function (req, res) {
 
   res.send("asdasd");
 });
-router.patch("/:userId", function (req, res) {
-  apiReq.Patch("user", req, req.params.userId, null);
+router.patch("/:userId", async function (req, res) {
+  const response = await apiReq.Patch("user", req, req.params.userId, null);
+  console.log("response: ", response);
+  send(res.send(response));
 });
 module.exports = router;
